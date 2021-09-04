@@ -1,0 +1,19 @@
+x($sConf&".profile2.value1","1")
+x($sConf&".profile2.value2","false")
+x($sConf&".profile2.value3","12")
+x($sConf&".profile2.list1",_ArrayCreate("ip4","ip5","ip6"))
+
+x("some_other_value","1")
+
+
+x_display(); array before writing to ini
+ConsoleWrite("-----------------------------------------------------" & @CRLF)
+
+_WriteAssocToIni($sConf)
+
+x_del($sConf); Delete config array
+x_display(); Show that array is deleted
+ConsoleWrite("-----------------------------------------------------" & @CRLF)
+
+_ReadAssocFromIni($sConf)
+x_display(); array restored from ini
